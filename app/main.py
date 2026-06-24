@@ -7,6 +7,10 @@ Base.metadata.create_all(engine)
 
 app = FastAPI()
 
+from app.routers.usuario_router import router as usuario_router
+
+app.include_router(usuario_router)
+
 @app.get("/", tags=["Main"])
 async def home():
     return {"msg": "bem vindo"}
